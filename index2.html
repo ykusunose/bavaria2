@@ -83,22 +83,46 @@ body {
           </div>
         </div>
         <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
-        <!-- Page content goes here, exists next to map -->
+
+
           <div id="map" class='viewport-twothirds viewport-full-ml'></div>
           <!-- UI, year indicator, and basemap control go here and floats above the map -->
-          <!-- grade indicator -->
-            <div id='year' class='range w100 bg-white round-ml border border--gray-light round  px12'>
-              <p class='txt-l txt-bold'>Year: <span></span></p>
-            </div>
+          <div id='title' class='container  bg-white round-ml border border--gray-light round px12' >
+            <h1 class='txt-h2 mb2'>Winter wheat varieties tested in Bavaria (2000-2019)</h1>
+          </div>
 
-          <!-- ui slider -->
-            <div id='slider' class='range w240 bg-white round-ml border border--gray-light round px12'>
-                <input type="range" min = "2000", max="2019", value="2000", step="1"/>
-            </div>
-        
+            <!-- year indicator -->
+              <div id='year' >
+                <p class='txt-l txt-bold px12'><span></span></p>
+              </div>
+              
+            <!-- ui slider -->
+              <div id='slider' class='row  bg-white round-ml border border--gray-light round px12'>
+                  <input type="range" min = "2000", max="2019", value="2000", step="1"/>
+              </div>
+
             <!-- basemap contol-->
-            <div id='basemap' class='range w400 bg-white round-ml border border--gray-light round px12'>
+        
+            <div id='basemap' class='container  bg-white round-ml border border--gray-light round px12' >
               <p class='txt-l txt-bold'>Basemap</p>
+            <div class="form-check row">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              <label class="form-check-label txt-l " for="exampleRadios1">
+                None 
+             </label>
+            </div>
+            <div class="form-check row">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label txt-l " for="exampleRadios2">
+                Agro-ecological zones <a href='#'>info</a>
+              </label>
+            </div>
+            <div class="form-check row">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+              <label class="form-check-label txt-l " for="exampleRadios3">
+                Winter wheat density <a href='#'>info</a>
+              </label>
+            </div>
 
             </div>
             
@@ -132,7 +156,7 @@ body {
   var map = L.map('map', {
       zoomSnap: .1,
       center: [48.7, 11.4],
-      zoom: 7,
+      zoom: 6,
       minZoom: 6,
       maxZoom: 9
       //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
@@ -148,7 +172,8 @@ body {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
       maxZoom: 18,
       id: 'light-v10',
-      accessToken: accessToken
+      accessToken: accessToken,
+      zoomControl: false
   }).addTo(map);
 
   bkrOptions = {
@@ -159,7 +184,7 @@ body {
     maxZoom: 9
   };
 
-  var bkrLayer = L.tileLayer('tiles_bkr/{z}/{x}/{y}.png', bkrOptions).addTo(map);
+  var bkrLayer = L.tileLayer('tiles_density/{z}/{x}/{y}.png', bkrOptions).addTo(map);
 
   $.getJSON("data/trialLocs20yrsVars.json", function (data) {
        drawMap(data);   
@@ -249,6 +274,30 @@ body {
       }
       basemapControl.addTo(map);
 
+
+      const titleControl = L.control({
+          position: 'topleft'
+      });
+      titleControl.onAdd = function(map) {
+          var controls = L.DomUtil.get("title");
+          L.DomEvent.disableScrollPropagation(controls);
+          L.DomEvent.disableClickPropagation(controls);
+          return controls;
+      }
+      titleControl.addTo(map);
+
+
+      // const zoomControl=L.control.zoom({
+      //   position: 'bottomright'
+      // });
+      // zoomControl.onAdd = function(map) {
+      //     // var controls = L.DomUtil.get("title");
+      //     L.DomEvent.disableScrollPropagation(controls);
+      //     L.DomEvent.disableClickPropagation(controls);
+      //     return controls;
+      // }
+      // zoomControl.addTo(map);
+
   // FXN: retrieveInfo(layer, currentGrade)
   function retrieveInfo(varsLayer, currentYear) {
       
@@ -279,7 +328,7 @@ body {
           fillOpacity: .6
           });
 
-          let deetsContent = `<b>${props.location}</b>, ${currentYear}`;
+          let deetsContent = `<b>${props.location}</b> <p class = girls text-l> ${currentYear}</p>`;
 
           for (let i = 0; i<numvars; i++) {
             deetsContent += `<br> ${props['vars' + currentYear][i]}`
