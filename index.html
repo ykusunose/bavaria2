@@ -58,28 +58,33 @@ body {
     <div class='flex-parent viewport-full relative scroll-hidden'>
         <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
           <div class='flex-parent flex-parent--column viewport-third h-full-ml hmax-full bg-white py18 px12'>
-            <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
-              <!-- <h1 class='txt-h2 mb2'>Winter wheat varieties tested in Bavaria (2000-2019)</h1> -->
-              <h2 id = "varNames" > Click on a site to see the varieties tested.</h2>
-
-              </div>
-            <footer class='px12 py12 bg-gray-faint txt-m'>
+            
+            <header class='px12 py12 bg-gray-faint txt-m'>
+              <p class= 'girls txt-l txt-bold' >Winter wheat variety trials, Bavaria (2000-2019) </p>
               <ul>
-                <li><b>Variety data:</b> <a class='link' href="#" target="_blank">whom?</a></li>
-                <li><b>Base maps:</b> 
-                  <ul> 
-                    <li>XXX</li> 
-                    <li>YYY</li>
-                  </ul>
-                </li>
                 <li><b>Map authors:</b>
                   <ul> 
                     <li><a class='link' href="https://ykusunose.github.io" target="_blank"> Y. Kusunose</a> (Univ. of Kentucky) </li>
                     <li><a class='link' href="#" target="_blank">M. Gerullis</a> (Universität Bonn) </li>
                   </ul>  
                 </li>
+                <li><b>Variety data:</b>
+                  <ul>
+                    <li> <a class='link' href="#" target="_blank">XXX</a> (affiliation)</li>
+                  </ul>
+                <li><b>Base maps:</b> 
+                  <ul> 
+                    <li><a class='link' href="#" target="_blank">YYY</a> (affiliation)</li> 
+                    <li><a class='link' href="#" target="_blank">ZZZ</a> (affiliation)</li>
+                  </ul>
+                </li>
+                
               </ul>
-            </footer>
+            </header>
+            <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
+              <!-- <h1 class='txt-h2 mb2'>Winter wheat varieties tested in Bavaria (2000-2019)</h1> -->
+              <h2 id = "varNames" class= 'txt-m txt-bold' > Varieties: (Click on a site.)</h2>
+            </div>
           </div>
         </div>
         <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
@@ -106,27 +111,25 @@ body {
             <div id='basemap' class='container  bg-white round-ml border border--gray-light round px12' >
               <p class='txt-l txt-bold'>Basemap</p>
             <div class="form-check row">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-              <label class="form-check-label txt-l " for="exampleRadios1">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="none" checked>
+              <label class="form-check-label txt-m " for="exampleRadios1">
                 None 
              </label>
             </div>
             <div class="form-check row">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-              <label class="form-check-label txt-l " for="exampleRadios2">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="bkr">
+              <label class="form-check-label txt-m " for="exampleRadios2">
                 Agro-ecological zones <a href='#'>info</a>
               </label>
             </div>
             <div class="form-check row">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-              <label class="form-check-label txt-l " for="exampleRadios3">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="density">
+              <label class="form-check-label txt-m " for="exampleRadios3">
                 Winter wheat density <a href='#'>info</a>
               </label>
             </div>
 
-            </div>
-            
-  
+            </div>           
         </div>
      </div>
 
@@ -176,15 +179,16 @@ body {
       zoomControl: false
   }).addTo(map);
 
-  bkrOptions = {
-    tms: true,
-    opacity: 0.7,
+  baseOptions = {
+    tms: false,
+    opacity: 0.8,
     attribution: "stuff here",
     minZoom: 6,
     maxZoom: 9
   };
 
-  var bkrLayer = L.tileLayer('tiles_density_boydx/{z}/{x}/{y}.png', bkrOptions).addTo(map);
+  // var baseLayer = L.tileLayer('tiles_bkr_south/{z}/{x}/{y}.png', baseOptions).addTo(map);
+  var baseMap="none";
 
   $.getJSON("data/trialLocs20yrsVars.json", function (data) {
        drawMap(data);   
@@ -210,7 +214,7 @@ body {
       map.fitBounds(varsLayer.getBounds());
       map.setZoom(map.getZoom() -.4)
       resizeCircles(varsLayer, 2000);
-      sequenceUI(varsLayer);
+      sequenceUI(varsLayer, baseMap);
   }
 
   // FXN: resizeCircles (varsLayer, currentYear)
@@ -228,8 +232,8 @@ body {
       return radius * 8
   }    
 
-  // FXN: sequenceUI(varslayer)
-  function sequenceUI(varsLayer){
+  // FXN: sequenceUI(varslayer, baseMap)
+  function sequenceUI(varsLayer, baseMap){
       // select slider's input and listen for change
       $('#slider input[type = range]')
           .on('input', function() {
@@ -259,44 +263,41 @@ body {
           return yrControls;
       }
       yearControl.addTo(map);    
-     
-  }
 
+      // $('#exampleRadios1 input[type = radio]')
+      //     .on('input', function() {
+      //         var chosenBase = this
+      //         console.log(chosenBase);
+
+      //     })
+      //   if (this=="bkr") {
+      //     var baseLayer = L.tileLayer('tiles_bkr_south/{z}/{x}/{y}.png', baseOptions).addTo(map);
+      //   };
+      //   if (this=="density") {
+      //     var baseLayer = L.tileLayer('tiles_density_south/{z}/{x}/{y}.png', baseOptions).addTo(map);
+      //   } 
+      //   const basemapControl = L.control({
+      //     position: 'bottomleft'
+      //   });
+      //   basemapControl.onAdd = function(map) {
+      //       var controls = L.DomUtil.get("basemap");
+      //       L.DomEvent.disableScrollPropagation(controls);
+      //       L.DomEvent.disableClickPropagation(controls);
+      //       return controls;
+      //   }
+      //   basemapControl.addTo(map);
+  }
 
   const basemapControl = L.control({
           position: 'bottomleft'
-      });
-      basemapControl.onAdd = function(map) {
-          var controls = L.DomUtil.get("basemap");
-          L.DomEvent.disableScrollPropagation(controls);
-          L.DomEvent.disableClickPropagation(controls);
-          return controls;
-      }
-      basemapControl.addTo(map);
-
-
-      const titleControl = L.control({
-          position: 'topleft'
-      });
-      titleControl.onAdd = function(map) {
-          var controls = L.DomUtil.get("title");
-          L.DomEvent.disableScrollPropagation(controls);
-          L.DomEvent.disableClickPropagation(controls);
-          return controls;
-      }
-      titleControl.addTo(map);
-
-
-      // const zoomControl=L.control.zoom({
-      //   position: 'bottomright'
-      // });
-      // zoomControl.onAdd = function(map) {
-      //     // var controls = L.DomUtil.get("title");
-      //     L.DomEvent.disableScrollPropagation(controls);
-      //     L.DomEvent.disableClickPropagation(controls);
-      //     return controls;
-      // }
-      // zoomControl.addTo(map);
+        });
+        basemapControl.onAdd = function(map) {
+            var controls = L.DomUtil.get("basemap");
+            L.DomEvent.disableScrollPropagation(controls);
+            L.DomEvent.disableClickPropagation(controls);
+            return controls;
+        }
+        basemapControl.addTo(map);
 
   // FXN: retrieveInfo(layer, currentGrade)
   function retrieveInfo(varsLayer, currentYear) {
@@ -328,7 +329,7 @@ body {
           fillOpacity: .6
           });
 
-          let deetsContent = `<b>${props.location}</b> <p class = girls text-l> ${currentYear}</p>`;
+          let deetsContent =  `<p class = girls text-l> ${props.location}, ${currentYear}</p>`;
 
           for (let i = 0; i<numvars; i++) {
             deetsContent += `<br> ${props['vars' + currentYear][i]}`
@@ -374,6 +375,9 @@ body {
               });
           }
       });
+
+
+       
 
   }
   </script>
