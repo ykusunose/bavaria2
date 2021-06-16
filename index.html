@@ -187,8 +187,8 @@ body {
     maxZoom: 9
   };
 
-  // var baseLayer = L.tileLayer('tiles_bkr_south/{z}/{x}/{y}.png', baseOptions).addTo(map);
-  var baseMap="none";
+  var baseLayer = L.tileLayer('tiles_bkr_south/{z}/{x}/{y}.png', baseOptions).addTo(map);
+  // var baseMap="none";
 
   $.getJSON("data/trialLocs20yrsVars.json", function (data) {
        drawMap(data);   
@@ -214,7 +214,7 @@ body {
       map.fitBounds(varsLayer.getBounds());
       map.setZoom(map.getZoom() -.4)
       resizeCircles(varsLayer, 2000);
-      sequenceUI(varsLayer, baseMap);
+      sequenceUI(varsLayer);
   }
 
   // FXN: resizeCircles (varsLayer, currentYear)
@@ -233,7 +233,7 @@ body {
   }    
 
   // FXN: sequenceUI(varslayer, baseMap)
-  function sequenceUI(varsLayer, baseMap){
+  function sequenceUI(varsLayer){
       // select slider's input and listen for change
       $('#slider input[type = range]')
           .on('input', function() {
