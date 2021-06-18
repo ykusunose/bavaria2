@@ -52,48 +52,52 @@
     }
 
     /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-
-
-
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
 
 
@@ -110,32 +114,33 @@
           <ul>
             <li><b>Map authors:</b>
               <ul>
-                <li><a class='link' href="https://agecon.ca.uky.edu/person/yoko-kusunose" target="_blank"> Y. Kusunose</a> (Univ. of
+                <li><a class='link' href="https://agecon.ca.uky.edu/person/yoko-kusunose" target="_blank"> Y.
+                    Kusunose</a> (Univ. of
                   Kentucky) </li>
-                <li><a class='link' href="https://www.ilr.uni-bonn.de/agpo/staff/gerullis/gerullis_e.htm" target="_blank">M. Gerullis</a> (Universität Bonn) </li>
+                <li><a class='link' href="https://www.ilr.uni-bonn.de/agpo/staff/gerullis/gerullis_e.htm"
+                    target="_blank">M. Gerullis</a> (Universität Bonn) </li>
               </ul>
             </li>
             <li><b>Variety data:</b>
               <ul>
-                <li> <a class='link' href="#" target="_blank">XXX</a> (affiliation)</li>
+                <li> <a class='link' href="https://www.lfl.bayern.de/ipz/getreide/019108/index.php" target="_blank">Nickl U., and L. Huber, A. Wiesinger, T. Eckl, M. Schmidt (2000 – 2019)</a></li>
               </ul>
-            <li><b>Base maps:</b>
+            <!-- <li><b>Base maps:</b>
               <ul>
                 <li><a class='link' href="#" target="_blank">YYY</a> (affiliation)</li>
                 <li><a class='link' href="#" target="_blank">ZZZ</a> (affiliation)</li>
               </ul>
-            </li>
+            </li> -->
 
           </ul>
         </header>
         <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
-          <!-- <h1 class='txt-h2 mb2'>Winter wheat varieties tested in Bavaria (2000-2019)</h1> -->
           <h2 id="varNames" class='txt-m txt-bold'> Varieties: (Click on a site.)</h2>
         </div>
       </div>
     </div>
 
-    
+
 
 
 
@@ -171,42 +176,45 @@
           <div class="row">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="bkr">
             <label class="form-check-label txt-m " for="exampleRadios2">
-              Agro-ecological zones 
-              <!-- <a href='#' data-toggle="modal" data-target="#bkrModal">info</a> -->
-              <button class=link id="bkrBtn">  info</button>
-
-              <!-- The Modal -->
-<div id="bkrModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p> The present extracted data is preliminary, it is not published and conditional to this extract. 
-      Differences to the final version are possible.</p>
-     <p> Thünen Atlas: Agricultural land use version 2021</p>
-      
-      <p>Method: Alexander Gocht & Norbert Röder (2014) Using a Bayesian 
-        estimator to combine information from a cluster analysis and remote 
-        sensing data to estimate high-resolution data for agricultural production in Germany, 
-        International Journal of Geographical Information Science, 28:9, 1744-1764, <br> DOI: <a href="https://www.tandfonline.com/doi/abs/10.1080/13658816.2014.897348" target="_blank">10.1080/13658816.2014.897348</a>.</p>
-      
-      <p>Data: Stat. Ämter der Länder, Kreisdaten der Landwirtschaftszählung 2016 (eigene Berechnungen); 
-        FDZ der Stat. Ämter des Bundes und der Länder, Landwirtschaftszählung 2010 and AFiD-Panel Agrarstruktur 1999, 2003, 2007, 2016 (eigene Calculation: 1999-2016. Clusterschätzer); 
-        © GeoBasis-DE/BKG (2016). </p>
-
-      <p>The <a href="http://geoportal.julius-kuehn.de/#/map/public/5e1f07a8e9208e35a71e24ac" target="_blank">full version</a> of this map is hosted by the Julius Kühn-Intitut.</p>  
-  </div>
-
-</div>
-
-
-
+              Agro-ecological zones
+              <button class=link id="bkrBtn"> info</button>
+              <!-- BKR Modal -->
+              <div id="bkrModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Agro-climatic zones (Boden-Klima-Räume)</h2>
+                  2013, Julius Kühn-Institut.
+                  <p>The <a href="http://geoportal.julius-kuehn.de/#/map/public/5e1f07a8e9208e35a71e24ac"
+                      target="_blank">full version</a> of this map is hosted by the Julius Kühn-Intitut.</p>
+                </div>
+              </div>
             </label>
           </div>
           <div class="row">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="density">
             <label class="form-check-label txt-m " for="exampleRadios3">
-              Winter wheat density <a href='#'>info</a>
+              Winter wheat density <button class=link id="denBtn"> info</button>
+              <!-- density Modal -->
+              <div id="denModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Ratio of winter wheat on total utilized agricultural area, based on 2010 Gemeinde regulations</h2>
+                  <p> The present extracted data is preliminary, it is not published and conditional to this extract.
+                    Differences to the final version are possible.</p>
+                  <p> Thünen Atlas: Agricultural land use version 2021</p>
+                  <p>Method: Alexander Gocht & Norbert Röder (2014) Using a Bayesian
+                    estimator to combine information from a cluster analysis and remote
+                    sensing data to estimate high-resolution data for agricultural production in Germany,
+                    International Journal of Geographical Information Science, 28:9, 1744-1764, <br> DOI: <a
+                      href="https://www.tandfonline.com/doi/abs/10.1080/13658816.2014.897348"
+                      target="_blank">10.1080/13658816.2014.897348</a>.</p>
+                  <p>Data: Stat. Ämter der Länder, Kreisdaten der Landwirtschaftszählung 2016 (eigene Berechnungen);
+                    FDZ der Stat. Ämter des Bundes und der Länder, Landwirtschaftszählung 2010 and AFiD-Panel
+                    Agrarstruktur 1999, 2003, 2007, 2016 (eigene Calculation: 1999-2016. Clusterschätzer);
+                    © GeoBasis-DE/BKG (2016). </p>
+                    <p>The <a href="https://www.atlas-agrarstatistik.nrw.de" target="_blank">full version</a> ("Anteil der Weizenfläche, 2010") of this map is hosted by the (German) Statistische Ämter des Bundes und der Länder.</p>
+                </div>
+              </div>
             </label>
           </div>
         </div>
@@ -219,37 +227,7 @@
   <div id='info' class='py6 px12 bg-white border border--gray-light round fixed    w240'>
     <p><span></span></p>
     <p class='girls'>varieties <span></span>: <span class='txt-l txt-bold'></span></p>
-    <!-- Additional elements added here for this step! -->
-    <!-- <hr class='txt-hr'> -->
-
   </div>
-
-  <!-- Modal Agro-ecological zone 'info' -->
-  <!-- <div class="modal fade" id="bkrModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLabel">M. Rex's portfolio on Github</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-			  
-			  <!-- <iframe src="https://ykusunose.github.io" width="100%"></iframe> -->
-			  <!-- <iframe width="100%" height="315px" src="https://ykusunose.github.io" title="M. Rex's github portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			  <a href="https://ykusunose.github.io" target="_blank">
-				<button type="button" class="btn btn-primary">Visit site</button>
-			  </a>
-			</div>
-		  </div>
-		</div>
-	  </div> -->
-
-
 
 </body>
 <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
@@ -286,7 +264,6 @@
     accessToken: accessToken,
     zoomControl: false
   }).addTo(map);
-
   addBaseMaps()
 
 
@@ -363,49 +340,19 @@
       return yrControls;
     }
     yearControl.addTo(map);
-
-    // $('#exampleRadios1 input[type = radio]')
-    //     .on('input', function() {
-    //         var chosenBase = this
-    //         console.log(chosenBase);
-
-    //     })
-    //   if (this=="bkr") {
-    //     var baseLayer = L.tileLayer('tiles_bkr_south/{z}/{x}/{y}.png', baseOptions).addTo(map);
-    //   };
-    //   if (this=="density") {
-    //     var baseLayer = L.tileLayer('tiles_density_south/{z}/{x}/{y}.png', baseOptions).addTo(map);
-    //   } 
-    //   const basemapControl = L.control({
-    //     position: 'bottomleft'
-    //   });
-    //   basemapControl.onAdd = function(map) {
-    //       var controls = L.DomUtil.get("basemap");
-    //       L.DomEvent.disableScrollPropagation(controls);
-    //       L.DomEvent.disableClickPropagation(controls);
-    //       return controls;
-    //   }
-    //   basemapControl.addTo(map);
   }
-
 
 
   // FXN: retrieveInfo(layer, currentGrade)
   function retrieveInfo(varsLayer, currentYear) {
 
-    // select the element and reference with variable
-    // and hide it from view initially
+    // select the element and reference with variable and hide it from view initially
     const info = $('#info').hide();
-
-    // since boysLayer is on top, use to detect mouseover events
     varsLayer.on('mouseover', function (e) {
-
-      // remove the none class to display and show
       info.show();
 
       // access properties of target layer
       const props = e.layer.feature.properties;
-
       // populate HTML elements with relevant info
       $('#info span').html(props.location);
       $(".girls span:first-child").html(`in ${currentYear}`);
@@ -421,7 +368,6 @@
       });
 
       let deetsContent = `<p class = girls text-l> ${props.location}, ${currentYear}</p>`;
-
       for (let i = 0; i < numvars; i++) {
         deetsContent += `<br> ${props['vars' + currentYear][i]}`
       }
@@ -429,16 +375,12 @@
         deetsContent += `<br> No record`
       }
       deets.innerHTML = deetsContent;
-
-
-
     });
+
     // hide the info panel when mousing off layergroup and remove affordance opacity
     varsLayer.on('mouseout', function (e) {
-
       // hide the info panel
       info.hide();
-
       // reset the layer style
       e.layer.setStyle({
         fillOpacity: 0
@@ -452,7 +394,6 @@
         "left": e.pageX + 6,
         "top": e.pageY - info.height() - 25
       });
-
       // if it crashes into the top, flip it lower right
       if (info.offset().top < 4) {
         info.css({
@@ -468,79 +409,92 @@
     });
   }
 
-function addBaseMaps() {
-  baseOptions = {
-    tms: false,
-    opacity: 0.8,
-    attribution: "Attribution: see 'info' in Basemap control panel.",
-    minZoom: 6,
-    maxZoom: 9
-  };
+  function addBaseMaps() {
+    baseOptions = {
+      tms: false,
+      opacity: 0.8,
+      attribution: "Attribution: see 'info' in Basemap control panel.",
+      minZoom: 6,
+      maxZoom: 9
+    };
 
-  var bkr = L.tileLayer('tiles_bkr_south/{z}/{x}/{y}.png', baseOptions),
-      density = '' 
-  
-  var dens = L.tileLayer('tiles_density_south/{z}/{x}/{y}.png', baseOptions),
-      density = '' 
+    var bkr = L.tileLayer('tiles_bkr_south/{z}/{x}/{y}.png', baseOptions),
+      density = ''
 
-  // var baseMap="none";
+    var dens = L.tileLayer('tiles_density_south/{z}/{x}/{y}.png', baseOptions),
+      density = ''
 
-  const basemapControl = L.control({
-    position: 'bottomleft'
-  });
+    // var baseMap="none";
 
-  basemapControl.onAdd = function (map) {
-    var controls = L.DomUtil.get("basemap");
-    L.DomEvent.disableScrollPropagation(controls);
-    L.DomEvent.disableClickPropagation(controls);
-    return controls;
-  }
-  basemapControl.addTo(map);
-
-  document.querySelectorAll('input[name="exampleRadios"]').forEach(function (element) {
-    element.addEventListener("change", function (event) {
-      const item = event.target.value;
-      console.log(item);
-      if (item == 'bkr') {
-        bkr.addTo(map)
-      } else if (item == 'density') {
-        bkr.removeFrom(map);
-        dens.addTo(map)
-      } else if (item == 'none') {
-        bkr.removeFrom(map);
-        dens.removeFrom(map)
-      }
+    const basemapControl = L.control({
+      position: 'bottomleft'
     });
-  });
 
-}
-  
-  // Get the modal
-var modal = document.getElementById("bkrModal");
+    basemapControl.onAdd = function (map) {
+      var controls = L.DomUtil.get("basemap");
+      L.DomEvent.disableScrollPropagation(controls);
+      L.DomEvent.disableClickPropagation(controls);
+      return controls;
+    }
+    basemapControl.addTo(map);
 
-// Get the button that opens the modal
-var bkrBtn = document.getElementById("bkrBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-bkrBtn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+    document.querySelectorAll('input[name="exampleRadios"]').forEach(function (element) {
+      element.addEventListener("change", function (event) {
+        const item = event.target.value;
+        console.log(item);
+        if (item == 'bkr') {
+          bkr.addTo(map)
+        } else if (item == 'density') {
+          bkr.removeFrom(map);
+          dens.addTo(map)
+        } else if (item == 'none') {
+          bkr.removeFrom(map);
+          dens.removeFrom(map)
+        }
+      });
+    });
   }
-}
 
+  // BKR modal
+  var bkrModal = document.getElementById("bkrModal");
+  var bkrBtn = document.getElementById("bkrBtn");
+  var span = document.getElementsByClassName("close")[0];
+  // When the user clicks the button, open the modal 
+  bkrBtn.onclick = function () {
+    bkrModal.style.display = "block";
+  }
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    bkrModal.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == bkrMmodal) {
+      bkrModal.style.display = "none";
+    }
+  }
+
+
+  // // density modal
+  // var denModal = document.getElementById("denModal");
+  // // Get the button that opens the modal
+  // var denBtn = document.getElementById("denBtn");
+  // // Get the <span> element that closes the modal
+  // var span = document.getElementsByClassName("close")[0];
+  // // When the user clicks the button, open the modal 
+  // denBtn.onclick = function () {
+  //   denModal.style.display = "block";
+  // }
+  // // When the user clicks on <span> (x), close the modal
+  // span.onclick = function () {
+  //   denModal.style.display = "none";
+  // }
+  // // When the user clicks anywhere outside of the modal, close it
+  // window.onclick = function (event) {
+  //   if (event.target == denModal) {
+  //     denModal.style.display = "none";
+  //   }
+  // }
 
 </script>
 
