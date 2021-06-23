@@ -182,7 +182,7 @@
               <div id="bkrModal" class="modal">
                 <div class="modal-content">
                   <span class="close">&times;</span>
-                  <h2>Agro-climatic zones (Boden-Klima-Räume)</h2>
+                  <h2><b>Agro-climatic zones (Boden-Klima-Räume)</b></h2>
                   2013, Julius Kühn-Institut.
                   <p>The <a href="http://geoportal.julius-kuehn.de/#/map/public/5e1f07a8e9208e35a71e24ac"
                       target="_blank">full version</a> of this map is hosted by the Julius Kühn-Intitut.</p>
@@ -198,22 +198,24 @@
               <div id="denModal" class="modal">
                 <div class="modal-content">
                   <span class="close">&times;</span>
-                  <h2>Ratio of winter wheat on total utilized agricultural area, based on 2010 Gemeinde regulations</h2>
-                  <p> The present extracted data is preliminary, it is not published and conditional to this extract.
-                    Differences to the final version are possible.</p>
-                  <p> Thünen Atlas: Agricultural land use version 2021</p>
-                  <p>Method: Alexander Gocht & Norbert Röder (2014) Using a Bayesian
+                  <h2><b>Ratio of winter wheat on total utilized agricultural area</b>, based on 2010 Gemeinde regulations</h2>
+                  <ul>
+                  <li> The present extracted data is preliminary, it is not published and conditional to this extract.
+                    Differences to the final version are possible.</li>
+                  <li> Thünen Atlas: Agricultural land use version 2021</li>
+                  <li>Method: Alexander Gocht & Norbert Röder (2014) Using a Bayesian
                     estimator to combine information from a cluster analysis and remote
                     sensing data to estimate high-resolution data for agricultural production in Germany,
                     International Journal of Geographical Information Science, 28:9, 1744-1764, <br> DOI: <a
                       href="https://www.tandfonline.com/doi/abs/10.1080/13658816.2014.897348"
-                      target="_blank">10.1080/13658816.2014.897348</a>.</p>
-                  <p>Data: Stat. Ämter der Länder, Kreisdaten der Landwirtschaftszählung 2016 (eigene Berechnungen);
+                      target="_blank">10.1080/13658816.2014.897348</a>.</li>
+                  <li>Data: Stat. Ämter der Länder, Kreisdaten der Landwirtschaftszählung 2016 (eigene Berechnungen);
                     FDZ der Stat. Ämter des Bundes und der Länder, Landwirtschaftszählung 2010 and AFiD-Panel
                     Agrarstruktur 1999, 2003, 2007, 2016 (eigene Calculation: 1999-2016. Clusterschätzer);
-                    © GeoBasis-DE/BKG (2016). </p>
-                    <p>The <a href="https://www.atlas-agrarstatistik.nrw.de" target="_blank">full version</a> ("Anteil der Weizenfläche, 2010") of this map is hosted by the (German) Statistische Ämter des Bundes und der Länder.</p>
-                </div>
+                    © GeoBasis-DE/BKG (2016). </li>
+                    <li>The <a href="https://www.atlas-agrarstatistik.nrw.de" target="_blank">full version</a> ("Anteil der Weizenfläche, 2010") of this map is hosted by the (German) Statistische Ämter des Bundes und der Länder.</li>
+                  </ul>
+                  </div>
               </div>
             </label>
           </div>
@@ -443,6 +445,7 @@
         const item = event.target.value;
         console.log(item);
         if (item == 'bkr') {
+          dens.removeFrom(map);
           bkr.addTo(map)
         } else if (item == 'density') {
           bkr.removeFrom(map);
@@ -475,26 +478,21 @@
   }
 
 
-  // // density modal
-  // var denModal = document.getElementById("denModal");
-  // // Get the button that opens the modal
-  // var denBtn = document.getElementById("denBtn");
-  // // Get the <span> element that closes the modal
-  // var span = document.getElementsByClassName("close")[0];
-  // // When the user clicks the button, open the modal 
-  // denBtn.onclick = function () {
-  //   denModal.style.display = "block";
-  // }
-  // // When the user clicks on <span> (x), close the modal
-  // span.onclick = function () {
-  //   denModal.style.display = "none";
-  // }
-  // // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function (event) {
-  //   if (event.target == denModal) {
-  //     denModal.style.display = "none";
-  //   }
-  // }
+  // density modal
+  // Get the button that opens the modal
+  var denBtn = document.getElementById("denBtn");
+  var span = document.getElementsByClassName("close")[1];
+  denBtn.onclick = function () {
+    denModal.style.display = "block";
+  }
+  span.onclick = function () {
+    denModal.style.display = "none";
+  }
+  window.onclick = function (event) {
+    if (event.target == denModal) {
+      denModal.style.display = "none";
+    }
+  }
 
 </script>
 
