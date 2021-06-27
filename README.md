@@ -6,7 +6,7 @@ This map shows the locations of variety trial sites (places where they grow new 
 Suppose the user wishes to know how many varieties were tested in a location called Reith, in the year 2000. Not only would they see the number (17), but also the names of those 17 winter wheat varieties.
 
 ## The data depicted
-1. the number and names of varieties at each site, each year (these are publicly available at https://www.lfl.bayern.de/ipz/getreide/019108/index.php, but my colleague put these all together into a usable file).
+1. the number and names of varieties at each site, each year (these are publicly available at https://www.lfl.bayern.de/ipz/getreide/019108/index.php, but my colleague, Maria Gerullis (University of Bonn), put these all together into a usable file).
 2. agro-ecological zones 2013, Julius Kühn-Institut (the shapefile came via the German Statistics Office for Land and Agriculture).
 3. current wheat-growing regions, Data: Stat. Ämter der Länder, Kreisdaten der Landwirtschaftszählung 2016 (eigene Berechnungen);
                     FDZ der Stat. Ämter des Bundes und der Länder, Landwirtschaftszählung 2010 and AFiD-Panel
