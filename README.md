@@ -1,5 +1,9 @@
 # bavaria_wheat_trials_2
 Winter wheat trials in Bavaria, Germany (2000-2019): Sites and varieties grown.
+
+## Github Pages URL
+https://ykusunose.github.io/bavaria_wheat_trials_2/
+
 ## This map
 This map shows the locations of variety trial sites (places where new crop varieties are grown to assess performance) for winter wheat in Bavaria, Germany from 2000 to 2019. The number of varieties tested varies by site, and also by year. For this reason, I incorporate a year slider so that the user can specify the year. The number of varieties at each site (in that year) is represented by the size of the circles representing each site. 
 
