@@ -24,3 +24,6 @@ Suppose the user wishes to know the winter wheat variety trials at a location ca
 4. QMetaTiles, a QGIS plug-in, to convert the basemap polygons into tilesets.
 5. Leaflet for mapping and map UI.
 6. Mapbox API for the formatting of the page (I think).
+
+## My portfolio
+Find this and other mapping projects at https://ykusunose.github.io/portfolio/.
